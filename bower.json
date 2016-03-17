@@ -1,0 +1,25 @@
+{
+  "name": "template-angular",
+  "description": "Basic angular project starter template",
+  "main": "index.html",
+  "authors": [
+    "Pavel S <rantie86@gmail.com>"
+  ],
+  "license": "MIT",
+  "moduleType": [
+    "es6"
+  ],
+  "homepage": "",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "angular": "~1.5.0",
+    "angular-ui-router": "~0.2.18",
+    "angular-animate": "~1.5.0"
+  }
+}
