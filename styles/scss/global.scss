@@ -6,24 +6,3 @@
 
 @import 'components/btns';
 @import 'pages/home';
-
-body {
-  background: $bodybg;
-}
-
-
-h1 {
-  background: #ff00ff;
-  color:#fff;
-  border-radius: 10px;
-  box-shadow: inset aqua 10px;
-}
-
-a {
-  -webkit-border-radius: 5px;
-  border-radius: 5px;
-}
-
-:fullscreen a {
-  display: flex
-}

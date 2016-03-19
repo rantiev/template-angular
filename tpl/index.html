@@ -6,10 +6,14 @@
     <title><%= htmlWebpackPlugin.options.title %></title>
 </head>
 <body>
-@require('./inc/header.html')
-<div ui-view></div>
-<!-- some comments to remove -->
-@require('./inc/footer.html')
+
+<div class="all">
+    @require('./inc/header.html')
+    <div ui-view></div>
+    @require('./inc/footer.html')
+</div>
+
+<!-- some comments to be automatically removed -->
 @require('./inc/analytics/google.html')
 </body>
 </html>

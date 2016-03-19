@@ -18,7 +18,6 @@ gulp.task("webpack:build", function (callback) {
 	myConfig.plugins = myConfig.plugins.concat(
 		new webpack.DefinePlugin({
 			"process.env": {
-				// This has effect on the react lib size
 				"NODE_ENV": JSON.stringify("production")
 			}
 		}),
@@ -67,11 +66,8 @@ gulp.task("webpack-dev-server", function (callback) {
 	new WebpackDevServer(webpack(myConfig), {
 		hot: true,
 		inline: true,
-		contentBase: "/build/public",
-		publicPath: "/" + myConfig.publicPath,
-		historyApiFallback: {
-			index: '/build/public'
-		},
+		contentBase: myConfig.devServer.buildPath,
+		historyApiFallback: true,
 		stats: {
 			colors: true
 		}

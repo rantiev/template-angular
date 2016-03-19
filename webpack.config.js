@@ -3,8 +3,8 @@ const path = require('path');
 
 const PATHS = {
     app: path.join(__dirname, '/app'),
-    public: path.join(__dirname, '/build/public'),
-    dist: 'dist'
+    build: path.join(__dirname, '/build'),
+    static: '/static'
 };
 
 const webpack = require('webpack');
@@ -14,7 +14,7 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
 
 const buildMode = ~process.argv.indexOf('-prod') ? 'prod' : 'dev';
-const bundleName = `${PATHS.dist}/[name].[hash].${buildMode === 'prod' ? 'min' : ''}`;
+const bundleName = `[name].[hash]${buildMode === 'prod' ? '.min' : ''}`;
 const jsBundleName = `${bundleName}.js`;
 const cssBundleName = `${bundleName}.css`;
 
@@ -56,11 +56,14 @@ for (var i in buildCfg.replacements[buildMode]) {
 }
 
 let webpackConfig = {
-    publicPath: '',
     entry: PATHS.app + '/app.js',
     output: {
-        path: PATHS.public,
+        path: PATHS.build,
         filename: jsBundleName
+    },
+    devServer: {
+        buildPath: PATHS.build,
+        staticPath: PATHS.static,
     },
     //cache: true,
     debug: true,
@@ -97,7 +100,7 @@ let webpackConfig = {
     },
     plugins: [
         new ExtractTextPlugin(cssBundleName),
-        new CleanWebpackPlugin([`${PATHS.public}/dist`], {
+        new CleanWebpackPlugin([`${PATHS.build}`], {
             root: __dirname,
             verbose: true,
             dry: false
@@ -125,9 +128,5 @@ let webpackConfig = {
         ]
     }*/
 };
-
-if (buildMode === 'prod') {
-    webpackConfig.plugins.push(new webpack.optimize.UglifyJsPlugin());
-}
 
 module.exports = webpackConfig;

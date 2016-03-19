@@ -1,3 +1,25 @@
-<div class="header">
-    <span>Header</span>
-</div>
+<nav class="navbar navbar-default" role="navigation">
+    <div class="container-fluid">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed"
+                    data-toggle="collapse"
+                    data-target="#bs-example-navbar-collapse-1">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" ui-sref="main.private.projects">Ra Projects</a>
+        </div>
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+            <div class="navbar-right">
+                <ul class="nav navbar-nav">
+                    <li ng-if="userCan"><a data-ui-sref="main.private.user({id: currentUser.id})">Profile</a></li>
+                    <li ng-if="userCan"><a href="/logout">Logout</a></li>
+                    <li ng-if="!userCan && currentState.name !== 'main.public.registration'"><a ui-sref="main.public.registration">Registration</a></li>
+                    <li ng-if="!userCan && currentState.name !== 'main.public.login'"><a ui-sref="main.public.login">Login</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</nav>
