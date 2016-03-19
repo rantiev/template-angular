@@ -62,18 +62,37 @@ let webpackConfig = {
         path: PATHS.public,
         filename: jsBundleName
     },
+    //cache: true,
     debug: true,
     watch: false,
     module: {
         loaders: [{
             test: /\.js$/,
-            loader: StringReplacePlugin.replace('babel?presets[]=es2015', replaceConfig)
+            loader: StringReplacePlugin.replace('babel-loader?presets[]=es2015', replaceConfig)
         }, {
             test: /\.scss$/,
             loader: ExtractTextPlugin.extract(['css-loader', 'autoprefixer-loader?browsers=last 5 version', 'sass-loader'])
         }, {
+            test: /\.css$/,
+            loader: ExtractTextPlugin.extract(['css-loader'])
+        }, {
             test: /\.html$/,
             loader: 'underscore-template-loader'
+        }, {
+            test: /\.woff(\?v=\d+\.\d+\.\d+)?$/,
+            loader: "url-loader?limit=10000&minetype=application/font-woff"
+        }, {
+            test: /\.woff2(\?v=\d+\.\d+\.\d+)?$/,
+            loader: "url-loader?limit=10000&minetype=application/font-woff2"
+        }, {
+            test: /\.ttf(\?v=\d+\.\d+\.\d+)?$/,
+            loader: "url-loader?limit=10000&minetype=application/octet-stream"
+        }, {
+            test: /\.eot(\?v=\d+\.\d+\.\d+)?$/,
+            loader: "file-loader"
+        }, {
+            test: /\.svg(\?v=\d+\.\d+\.\d+)?$/,
+            loader: "url-loader?limit=10000&minetype=image/svg+xml"
         }]
     },
     plugins: [
@@ -99,7 +118,12 @@ let webpackConfig = {
             }
         }),
         new StringReplacePlugin(),
-    ]
+    ]/*,
+    resolveLoader: {
+        modulesDirectories: [
+            'node_modules/'
+        ]
+    }*/
 };
 
 if (buildMode === 'prod') {

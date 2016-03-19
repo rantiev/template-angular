@@ -3,6 +3,7 @@
 
     let config = require('./appConfig.js');
 
+    require(`../${config.path3dParty}/bootstrap/dist/css/bootstrap.min.css`);
     require('../styles/scss/global.scss');
 
     require(`../${config.path3dParty}/angular/angular.min.js`);

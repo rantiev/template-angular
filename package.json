@@ -23,6 +23,13 @@
     "style-loader": "^0.13.0",
     "underscore": "^1.8.3",
     "underscore-template-loader": "^0.7.0",
-    "webpack": "^1.12.13"
+    "webpack": "^1.12.13",
+    "webpack-dev-server": "^1.14.1"
+  },
+  "dependencies": {
+    "babel": "^6.5.2",
+    "babel-loader": "^6.2.4",
+    "gulp": "^3.9.1",
+    "url-loader": "^0.5.7"
   }
 }
