@@ -1,12 +1,14 @@
 (function () {
     "use strict";
 
-    module.exports = {
+    let appConfig = {
         appName: 'myModule',
         path3dParty: 'bower_components',
-        apiUrl: 'localhost',
+        apiUrl: 'localhost:3000',
         googleId:'100900',
         booblId: '19'
     };
+
+    module.exports = appConfig;
 
 })();

@@ -67,6 +67,10 @@ gulp.task("webpack-dev-server", function (callback) {
 		hot: true,
 		inline: true,
 		contentBase: myConfig.devServer.buildPath,
+		/*publicPath: myConfig.devServer.staticPath,
+		historyApiFallback: {
+			index: myConfig.devServer.buildPath + myConfig.devServer.staticPath,
+		}*/
 		historyApiFallback: true,
 		stats: {
 			colors: true

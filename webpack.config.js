@@ -59,6 +59,7 @@ let webpackConfig = {
     entry: PATHS.app + '/app.js',
     output: {
         path: PATHS.build,
+        //publicPath: PATHS.static,
         filename: jsBundleName
     },
     devServer: {

@@ -1,0 +1,23 @@
+<div class="row">
+	<div class="col-sm-2 col-sm-offset-5">
+		<form name="raRegistrationForm">
+			<div class="form-group">
+				<input type="email" class="form-control" name="inputEmail" id="inputEmail" placeholder="Email" data-ng-model="inputEmail" required minlength="2" maxlength="50">
+			</div>
+			<div class="form-group">
+				<input type="text" class="form-control" name="inputFirstName" id="inputFirstName" placeholder="First Name" data-ng-model="inputFirstName" required minlength="2" maxlength="50">
+			</div>
+			<div class="form-group">
+				<input type="text" class="form-control" name="inputLastName" id="inputLastName" placeholder="Last Name" data-ng-model="inputLastName" required minlength="2" maxlength="50">
+			</div>
+			<div class="form-group">
+				<input type="password" class="form-control" name="inputPassword" id="inputPassword" placeholder="Password" data-ng-model="inputPassword" required minlength="6" maxlength="50">
+			</div>
+			<div class="form-group">
+				<input type="password" class="form-control" name="inputPasswordConfirm" id="inputPasswordConfirm" placeholder="Confirm Password" data-ng-model="inputPasswordConfirm" required minlength="6" maxlength="50" data-ra-compare-to="inputPassword">
+				<div class="ra-input-validation-error" ng-show="raRegistrationForm.inputPasswordConfirm.$error.raCompareTo">Password and Confirm Password fields don't match!</div>
+			</div>
+			<button type="submit" data-ng-click="submitForm()" class="btn btn-primary">Register</button>
+		</form>
+	</div>
+</div>

@@ -16,8 +16,15 @@
     ]);
 
     require('./appRouting.js');
-    require('./pages/home/homeCtrl.js');
-    require('./pages/page1/page1Ctrl.js');
-    require('./pages/page2/page2Ctrl.js');
+    require('./appAuthCheck.js');
+    require('./services/authService.js');
+    require('./services/userService.js');
+
+    require('./pages/public/home/homeCtrl.js');
+    require('./pages/public/login/loginCtrl.js');
+    require('./pages/public/registration/registrationCtrl.js');
+
+    require('./pages/private/dashboard/dashboardCtrl.js');
+    require('./pages/private/profile/profileCtrl.js');
 
 })();
