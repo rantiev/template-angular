@@ -8,17 +8,19 @@
 
     require(`../${config.path3dParty}/angular/angular.min.js`);
     require(`../${config.path3dParty}/angular-ui-router/release/angular-ui-router.min.js`);
+    require(`../${config.path3dParty}/angular-resource/angular-resource.min.js`);
     require(`../${config.path3dParty}/angular-animate/angular-animate.min.js`);
 
     angular.module(config.appName, [
         'ui.router',
+        'ngResource',
         'ngAnimate'
     ]);
 
     require('./appRouting.js');
     require('./appAuthCheck.js');
-    require('./services/authService.js');
-    require('./services/userService.js');
+    require('./services/authFactory.js');
+    require('./services/userFactory.js');
 
     require('./pages/public/home/homeCtrl.js');
     require('./pages/public/login/loginCtrl.js');

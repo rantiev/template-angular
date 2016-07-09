@@ -4,31 +4,28 @@
 	let config = require('../../../appConfig.js');
 
 	angular.module(config.appName).controller('login', [
-		'loginService',
-		'$scope', (
-			loginService,
-			$scope
-		) => {
+		'Auth',
+		'$state',
+		'$scope', (Auth,
+				   $state,
+				   $scope) => {
 
-		$scope.submitForm = function () {
+			$scope.submitForm = function () {
 
-			loginService.login({
-				email: $scope.inputEmail,
-				password: $scope.inputPassword,
-				remember: $scope.inputRememberMe
-			}).then(
-				function success(response){
-					$state.go('main.private.projects');
-					//toaster.pop("success", "", "You have logged in succesfully", 3000);
-				},
-				function error(reason){
-					$state.go('main.public.login');
-					//toaster.pop("error", "", "Please try to login again.", 3000);
-				}
-			);
+				let auth = new Auth();
 
-		}
+				auth.$save({
+					email: $scope.inputEmail,
+					password: $scope.inputPassword,
+					remember: $scope.inputRememberMe
+				}).then(res => {
+					$state.go('private.dashboard');
+				}, err => {
+					console.error(err);
+				});
 
-	}]);
+			}
+
+		}]);
 
 })();

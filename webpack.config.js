@@ -21,12 +21,12 @@ const cssBundleName = `${bundleName}.css`;
 const buildCfg = {
     replacements: {
         prod: {
-            apiUrl: 'http://google.com/api/',
+            apiUrl: 'http://google.com/api',
             googleId: '100500',
             booblId: '15'
         },
         dev: {
-            apiUrl: 'http://yandex.ru/api/',
+            apiUrl: 'http://localhost:3000',
             googleId: '100700',
             booblId: '17'
         }

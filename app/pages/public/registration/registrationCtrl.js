@@ -5,7 +5,7 @@
 
 	angular.module(config.appName).controller('registration', [
 		'User',
-		'$scope', (userService,
+		'$scope', (User,
 				   $scope) => {
 
 			$scope.submitForm = function () {
@@ -16,7 +16,7 @@
 
 				let user = new User();
 
-				user.save({
+				user.$save({
 					email: $scope.inputEmail,
 					fname: $scope.inputFirstName,
 					lname: $scope.inputLastName,
