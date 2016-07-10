@@ -11,15 +11,6 @@
             </button>
             <a class="navbar-brand" ui-sref="main.private.projects">Ra Projects</a>
         </div>
-        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-            <div class="navbar-right">
-                <ul class="nav navbar-nav">
-                    <li ng-if="currentUser"><a data-ui-sref="main.private.user({id: currentUser.id})">Profile</a></li>
-                    <li ng-if="currentUser"><a href="/logout">Logout</a></li>
-                    <li ng-if="!currentUser && currentState.name !== 'public.registration'"><a ui-sref="public.registration">Registration</a></li>
-                    <li ng-if="!currentUser && currentState.name !== 'public.login'"><a ui-sref="public.login">Login</a></li>
-                </ul>
-            </div>
-        </div>
+        <div data-main-nav></div>
     </div>
 </nav>

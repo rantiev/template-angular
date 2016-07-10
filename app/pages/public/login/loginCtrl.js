@@ -19,7 +19,7 @@
 					password: $scope.inputPassword,
 					remember: $scope.inputRememberMe
 				}).then(res => {
-					/*$state.go('private.dashboard');*/
+					$state.go('private.dashboard');
 				}, err => {
 					console.error(err);
 				});

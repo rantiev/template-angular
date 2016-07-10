@@ -22,6 +22,8 @@
     require('./services/authFactory.js');
     require('./services/userFactory.js');
 
+    require('./components/mainNav/mainNav.js');
+    require('./controllers/mainCtrl.js');
     require('./pages/public/home/homeCtrl.js');
     require('./pages/public/login/loginCtrl.js');
     require('./pages/public/registration/registrationCtrl.js');

@@ -23,17 +23,20 @@
 					fromParams
 				) {
 
-					Auth.get().$promise.then(res => {
-						$rootScope.currentUser = response.data;
-
+					$rootScope.currentUser = Auth.get().$promise.then(res => {
+						$rootScope.currentUser = res.id;
 						if (toState.blockLoggedIn) {
 							$state.go('private.dashboard');
+						} else {
+							$rootScope.currentState = toState;
 						}
-
-						$rootScope.currentState = toState;
 					}, err => {
+						$rootScope.currentUser = null;
+
 						if (!toState.public) {
 							$state.go('public.home');
+						} else {
+							$rootScope.currentState = toState;
 						}
 					});
 
