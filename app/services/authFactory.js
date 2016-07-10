@@ -6,7 +6,8 @@
 	angular.module(config.appName).service('Auth', [
 		'$resource',
 		$resource => $resource(`${config.apiUrl}/me`, {}, {
-			get: {
+			save: {
+				method: 'post',
 				withCredentials: true
 			}
 		})

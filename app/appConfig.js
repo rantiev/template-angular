@@ -4,7 +4,7 @@
     let appConfig = {
         appName: 'myModule',
         path3dParty: 'bower_components',
-        apiUrl: 'http://localhost:3000',
+        apiUrl: 'http://api.app.com:3000',
         googleId:'100900',
         booblId: '19'
     };

@@ -26,7 +26,7 @@ const buildCfg = {
             booblId: '15'
         },
         dev: {
-            apiUrl: 'http://localhost:3000',
+            apiUrl: 'http://app.com:3000',
             googleId: '100700',
             booblId: '17'
         }
